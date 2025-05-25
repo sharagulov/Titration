@@ -1,9 +1,8 @@
 <template>
   <div class="header-flex">
-    <h1>Титрование соды</h1>
+    <h1><slot /></h1>
     <p class="description gray-text">
-      Школьник нашёл банку соды 1956 года. Помогите ему определить состав вещества методом
-      титрования!
+      <slot name="desc" />
     </p>
   </div>
 </template>
@@ -18,9 +17,6 @@ export default {
 .header-flex {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
 }
 
 .description {

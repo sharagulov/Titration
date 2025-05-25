@@ -30,11 +30,14 @@ const fullDataStore = computed(() => {
   return dataStore.acidConcentration && dataStore.solutionVolume && dataStore.powderWeight
 })
 
-const haveBackwardStep = computed(() => dataStore.currentStep !== 'step1')
+const haveBackwardStep = computed(() => dataStore.currentStep !== 'step0')
 const haveForwardStep = computed(() => dataStore.currentStep !== 'step4')
 
 function nextStep() {
   switch (dataStore.currentStep) {
+    case 'step0':
+      dataStore.currentStep = 'step1'
+      break
     case 'step1':
       dataStore.currentStep = 'step2'
       break
@@ -49,6 +52,9 @@ function nextStep() {
 
 function prevStep() {
   switch (dataStore.currentStep) {
+    case 'step1':
+      dataStore.currentStep = 'step0'
+      break
     case 'step2':
       dataStore.currentStep = 'step1'
       break
