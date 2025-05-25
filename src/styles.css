@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--background);
+  color: inherit;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100dvh;
+  min-width: 100dvw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: white;
+  font-weight: 600;
+  margin: 1rem 0 0.5rem 0;
+}
+
+p {
+  color: white;
+  margin: 0 0 1rem 0;
+  font-weight: 400;
+}
+
+span {
+  color: white;
+}
+
+ul, ol {
+  color: white;
+  margin: 0 0 1rem 1.25rem;
+  padding: 0;
+}
+
+button {
+  font-family: inherit;
+  font-weight: 600;
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0.5em 1em;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input, textarea, select {
+  font-family: inherit;
+  font-weight: 400;
+  background: none;
+  color: inherit;
+  border: 1px solid currentColor;
+  padding: 0.5em;
+  border-radius: 4px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+label {
+  font-size: 14px;
+}
+
+.grey-text {
+  color: var(--textgray);
+}
