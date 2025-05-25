@@ -3,9 +3,20 @@
     <label class="input-label">
       <slot />
     </label>
-    <input type="text" class="input-field" />
-    <span class="description">
-      <Icon class="info" icon="material-symbols-light:info-outline" width="24" height="24" />
+    <input
+      :value="modelValue"
+      type="text"
+      class="input-field"
+      @input="updateValue($event.target.value)"
+    />
+    <span v-if="$slots.description" class="description">
+      <Icon
+        v-if="$slots.description"
+        class="info"
+        icon="material-symbols-light:info-outline"
+        width="24"
+        height="24"
+      />
       <slot name="description" />
     </span>
   </div>
@@ -15,7 +26,19 @@
 import { Icon } from '@iconify/vue'
 export default {
   name: 'InputComponent',
-  components: { Icon }
+  components: { Icon },
+  props: {
+    modelValue: {
+      type: String,
+      default: ''
+    }
+  },
+  emits: ['update:modelValue'],
+  methods: {
+    updateValue(value) {
+      this.$emit('update:modelValue', value)
+    }
+  }
 }
 </script>
 
@@ -59,6 +82,7 @@ export default {
   padding-top: 10px;
   transition: color 0.3s;
   user-select: none;
+  max-width: 90%;
 
   &:hover {
     color: white;

@@ -1,7 +1,7 @@
 <template>
   <div class="header-flex">
     <h1>Титрование соды</h1>
-    <p class="description grey-text">
+    <p class="description gray-text">
       Школьник нашёл банку соды 1956 года. Помогите ему определить состав вещества методом
       титрования!
     </p>

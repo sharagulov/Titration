@@ -12,7 +12,9 @@
   },
   "dependencies": {
     "@iconify/vue": "^5.0.0",
+    "lodash.debounce": "^4.0.8",
     "pinia": "^3.0.1",
+    "pinia-plugin-persistedstate": "^4.3.0",
     "vite-plugin-vue-devtools": "^7.7.6",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0"
