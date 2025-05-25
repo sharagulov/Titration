@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   background-color: var(--background);
@@ -16,30 +17,35 @@ html, body {
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
 }
 
 a {
   text-decoration: none;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: white;
   font-weight: 600;
-  margin: 1rem 0 0.5rem 0;
+  margin: 0;
 }
 
 p {
   color: white;
-  margin: 0 0 1rem 0;
   font-weight: 400;
+  margin: 0;
 }
 
 span {
   color: white;
 }
 
-ul, ol {
+ul,
+ol {
   color: white;
   margin: 0 0 1rem 1.25rem;
   padding: 0;
@@ -56,7 +62,9 @@ button {
   cursor: pointer;
 }
 
-input, textarea, select {
+input,
+textarea,
+select {
   font-family: inherit;
   font-weight: 400;
   background: none;
@@ -66,7 +74,9 @@ input, textarea, select {
   border-radius: 4px;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -74,6 +84,6 @@ label {
   font-size: 14px;
 }
 
-.grey-text {
+.gray-text {
   color: var(--textgray);
 }
