@@ -30,11 +30,12 @@ const isResults = computed(() => dataStore.currentStep === 'step3')
   display: flex;
   flex-direction: column;
   gap: 20px;
+  width: 800px;
+  margin: 30px;
 }
 
-@media (max-width: 800px) {
+@media (min-width: 800px) {
   .page-components {
-    margin: 30px;
   }
 }
 </style>
