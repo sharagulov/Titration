@@ -1,9 +1,23 @@
 <template>
   <div class="titration-block">
-    <h3 class="block-name">Ввод результатов титрования</h3>
+    <HeaderComponent
+      >Ввод результатов титрования
+      <template #desc>
+        Теперь вносим показания бюретки. Для надёжности каждой порции раствора вы титровали
+        четырежды двумя разными индикаторами.
+      </template>
+    </HeaderComponent>
+    <VerticalLine />
+    <div class="block">
+      <h3>Программа самостоятельно:</h3>
+      <p>• Усреднит каждую четвёрку значений</p>
+      <p>• Определит, какой индикатор фиксирует первую стадию, а какой — полную нейтрализацию</p>
+      <p>• Подставит средние объёмы в расчёты</p>
+    </div>
+    <VerticalLine />
     <div class="cards">
       <div class="card-block">
-        <span class="card-name gray-text"> Индикатор 1</span>
+        <span class="card-name gray-text">«Индикатор 1» (фенолфталеин)</span>
         <BlockComponent>
           <div class="input-fields">
             <InputComponent v-model="ind1_op1">
@@ -24,8 +38,9 @@
           </div>
         </BlockComponent>
       </div>
+      <VerticalLine />
       <div class="card-block">
-        <span class="card-name gray-text"> Индикатор 2</span>
+        <span class="card-name gray-text">«Индикатор 2» (метилоранж)</span>
         <BlockComponent>
           <div class="input-fields">
             <InputComponent v-model="ind2_op1">
@@ -46,28 +61,29 @@
           </div>
         </BlockComponent>
       </div>
+      <VerticalLine />
+      <p>
+        Если ввели все восемь чисел корректно, нажмите «Продолжить» — и на следующей странице
+        увидите полный разбор с формулами, пояснениями и итоговой структурой кристаллогидрата.
+      </p>
     </div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
   </div>
 </template>
 
 <script>
 import BlockComponent from '@/components/BlockComponent.vue'
+import VerticalLine from '@/components/VerticalLine.vue'
 import InputComponent from '@/components/InputComponent.vue'
+import HeaderComponent from '@/components/HeaderComponent.vue'
 import { useDataStore } from '@/stores/dataStore'
 import { computed } from 'vue'
 export default {
   name: 'TitrationComponent',
   components: {
     BlockComponent,
-    InputComponent
+    InputComponent,
+    HeaderComponent,
+    VerticalLine
   },
   setup() {
     const dataStore = useDataStore()
@@ -132,10 +148,10 @@ export default {
 }
 
 .titration-block {
+  margin-block: 200px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 10px;
+  gap: 20px;
 }
 
 .card-block {
@@ -155,16 +171,19 @@ export default {
 }
 
 .block-name {
-  text-align: center;
   margin-bottom: 15px;
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 @media (max-width: 800px) {
   .input-fields {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
   }
 }
 </style>

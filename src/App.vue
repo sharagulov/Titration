@@ -1,11 +1,11 @@
 <template>
   <div class="page-components">
     <ControlPanel />
-    <HeaderComponent />
-    <span>Описание данного раздела</span>
+    <HeaderComponent v-if="isIntro" />
     <PowderComponent v-if="isPowder" />
     <TitrationResultsComponent v-if="isTitration" />
     <CalculationResultsComponent v-if="isResults" />
+    <IntroComponent v-if="isIntro"></IntroComponent>
   </div>
 </template>
 
@@ -17,9 +17,11 @@ import CalculationResultsComponent from '@/components/CalculationResultsComponen
 import ControlPanel from '@/components/ControlPanel.vue'
 import { useDataStore } from '@/stores/dataStore'
 import { computed } from 'vue'
+import IntroComponent from './components/IntroComponent.vue'
 
 const dataStore = useDataStore()
 
+const isIntro = computed(() => dataStore.currentStep === 'step0')
 const isPowder = computed(() => dataStore.currentStep === 'step1')
 const isTitration = computed(() => dataStore.currentStep === 'step2')
 const isResults = computed(() => dataStore.currentStep === 'step3')
@@ -29,6 +31,7 @@ const isResults = computed(() => dataStore.currentStep === 'step3')
 .page-components {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 20px;
   width: 800px;
   margin: 30px;

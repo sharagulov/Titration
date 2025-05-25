@@ -3,20 +3,12 @@
     <label class="input-label">
       <slot />
     </label>
-    <input
-      :value="modelValue"
-      type="text"
-      class="input-field"
-      @input="updateValue($event.target.value)"
-    />
+
+    <!-- оставляем type="text", чтобы не получать браузерные стрелочки -->
+    <input :value="displayValue" type="text" class="input-field" @input="onInput" />
+
     <span v-if="$slots.description" class="description">
-      <Icon
-        v-if="$slots.description"
-        class="info"
-        icon="material-symbols-light:info-outline"
-        width="24"
-        height="24"
-      />
+      <Icon class="info" icon="material-symbols-light:info-outline" width="24" height="24" />
       <slot name="description" />
     </span>
   </div>
@@ -24,19 +16,40 @@
 
 <script>
 import { Icon } from '@iconify/vue'
+
 export default {
   name: 'InputComponent',
   components: { Icon },
+
   props: {
     modelValue: {
       type: String,
       default: ''
     }
   },
+
   emits: ['update:modelValue'],
+
+  computed: {
+    displayValue() {
+      return this.modelValue
+    }
+  },
+
   methods: {
-    updateValue(value) {
-      this.$emit('update:modelValue', value)
+    onInput(e) {
+      const raw = e.target.value.trim()
+
+      if (!raw) {
+        this.$emit('update:modelValue', '')
+        return
+      }
+
+      const normalized = raw.replace(',', '.')
+      const isNumeric =
+        /^[-+]?\d*(\.\d*)?$/.test(normalized) && normalized !== '.' && normalized !== '-'
+
+      this.$emit('update:modelValue', isNumeric ? normalized : '')
     }
   }
 }

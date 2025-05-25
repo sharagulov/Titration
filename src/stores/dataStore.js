@@ -13,7 +13,7 @@ export const useDataStore = defineStore('dataStore', {
     ind2_op2: null,
     ind2_op3: null,
     ind2_op4: null,
-    currentStep: 'step1'
+    currentStep: 'step0'
   }),
   persist: true
 })
