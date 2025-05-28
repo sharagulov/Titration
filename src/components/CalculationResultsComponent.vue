@@ -390,7 +390,7 @@ function nextWords(step, done) {
   const ticker = () => {
     if (i < step.words.length) {
       step.wordsShown.value.push(step.words[i++])
-      setTimeout(ticker, 20)
+      setTimeout(ticker, 50)
     } else {
       done && done()
     }
