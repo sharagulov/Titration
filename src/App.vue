@@ -31,7 +31,7 @@ const isResults = computed(() => dataStore.currentStep === 'step3')
 .page-components {
   gap: 20px;
   width: 800px;
-  padding: 30px;
+  padding: 50px 30px 150px 30px;
 }
 
 @media (max-width: 800px) {
