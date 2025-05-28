@@ -49,7 +49,7 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { useDataStore } from '@/stores/dataStore'
 import BlockComponent from '@/components/BlockComponent.vue'
 import VerticalLine from '@/components/VerticalLine.vue'
@@ -352,6 +352,10 @@ const dataMap = computed(() => {
     ind2Name: indicator2,
     indExplain: explanation
   }
+})
+
+onMounted(() => {
+  window.scrollTo(0, 0)
 })
 
 /* ------------------------------------------------------------------ */

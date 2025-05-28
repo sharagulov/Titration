@@ -132,6 +132,9 @@ export default {
       ind2_op3,
       ind2_op4
     }
+  },
+  mounted() {
+    window.scrollTo(0, 0)
   }
 }
 </script>

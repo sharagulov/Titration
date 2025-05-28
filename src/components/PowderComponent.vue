@@ -70,6 +70,9 @@ export default {
       solutionVolume,
       acidConcentration
     }
+  },
+  mounted() {
+    window.scrollTo(0, 0) // или scrollTo(0, 0)
   }
 }
 </script>

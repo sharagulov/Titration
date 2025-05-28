@@ -23,16 +23,14 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import VerticalLine from '@/components/VerticalLine.vue'
 import HeaderComponent from '@/components/HeaderComponent.vue'
-export default {
-  name: 'IntroComponent',
-  components: {
-    VerticalLine,
-    HeaderComponent
-  }
-}
+import { onMounted } from 'vue'
+
+onMounted(() => {
+  window.scrollTo(0, 0)
+})
 </script>
 
 <style scoped>
