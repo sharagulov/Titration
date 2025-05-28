@@ -10,7 +10,7 @@ export default {
 
 <style scoped>
 .splitter {
-  background: var(--powergray);
+  background: var(--textgray);
   width: 1px;
   height: 30px;
 }

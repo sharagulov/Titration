@@ -16,8 +16,15 @@ body {
   min-width: 100dvw;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: start;
   overflow-x: hidden;
+}
+
+@media (min-width: 600px) {
+  .html,
+  body {
+    align-items: center;
+  }
 }
 
 a {

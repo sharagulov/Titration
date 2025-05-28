@@ -52,12 +52,4 @@ export default {
     background: var(--gray);
   }
 }
-
-@media (max-width: 800px) {
-  .button-block {
-    box-shadow: 1px 0px 20px -6px rgba(0, 0, 0, 0.75);
-    -webkit-box-shadow: 1px 0px 20px -6px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 1px 0px 20px -6px rgba(0, 0, 0, 0.75);
-  }
-}
 </style>

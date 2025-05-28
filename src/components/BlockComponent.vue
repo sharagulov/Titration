@@ -28,8 +28,9 @@ export default {
   padding: 10px;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 600px) {
   .main-block {
+    width: 100%;
   }
 }
 </style>

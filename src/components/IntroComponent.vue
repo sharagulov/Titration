@@ -46,4 +46,14 @@ export default {
   flex-direction: column;
   gap: 5px;
 }
+
+@media (max-width: 800px) {
+  .intro-block {
+    align-items: center;
+  }
+
+  .block {
+    text-align: center;
+  }
+}
 </style>

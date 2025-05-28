@@ -8,7 +8,9 @@
       </template>
     </HeaderComponent>
     <VerticalLine />
-    <p>Перед тем как работать с бюреткой, лабораторный журнал должен знать три числа:</p>
+    <p class="block">
+      Перед тем как работать с бюреткой, лабораторный журнал должен знать три числа:
+    </p>
     <VerticalLine />
     <BlockComponent>
       <div class="input-fields">
@@ -25,7 +27,7 @@
       </div>
     </BlockComponent>
     <VerticalLine />
-    <p>
+    <p class="block">
       <strong>Совет:</strong> вводите числа через точку (6.5), чтобы расчёт прошёл без ошибок. После
       заполнения всех трёх полей кнопка «Продолжить» станет активной.
     </p>
@@ -73,16 +75,22 @@ export default {
 </script>
 
 <style scoped>
+.powder-block {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 .input-fields {
   display: flex;
   flex-direction: row;
   gap: 20px;
 }
 
-.powder-block {
+.block {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 5px;
 }
 
 .block-name {
@@ -92,6 +100,14 @@ export default {
 @media (max-width: 800px) {
   .input-fields {
     flex-direction: column;
+  }
+
+  .powder-block {
+    align-items: center;
+  }
+
+  .block {
+    text-align: center;
   }
 }
 </style>

@@ -1,19 +1,21 @@
 <template>
-  <div class="control-panel">
-    <div class="contol-buttons">
-      <transition name="fade">
-        <ButtonComponent v-if="haveBackwardStep" :blink="false" @click="prevStep"
-          >Назад</ButtonComponent
-        >
-      </transition>
-      <transition name="opacity">
-        <VerticalSplitter v-if="haveForwardStep && haveBackwardStep" />
-      </transition>
-      <transition name="fade">
-        <ButtonComponent v-if="fullDataStore && haveForwardStep" :blink="false" @click="nextStep"
-          >Продолжить</ButtonComponent
-        >
-      </transition>
+  <div class="control-wrapper">
+    <div class="control-panel">
+      <div class="contol-buttons">
+        <transition name="fade">
+          <ButtonComponent v-if="haveBackwardStep" :blink="false" @click="prevStep"
+            >Назад</ButtonComponent
+          >
+        </transition>
+        <transition name="opacity">
+          <VerticalSplitter v-if="haveBackwardStep && canNext" />
+        </transition>
+        <transition name="fade">
+          <ButtonComponent v-if="canNext" :blink="false" @click="nextStep"
+            >Продолжить</ButtonComponent
+          >
+        </transition>
+      </div>
     </div>
   </div>
 </template>
@@ -26,14 +28,41 @@ import VerticalSplitter from '@/components/VerticalSplitter.vue'
 
 const dataStore = useDataStore()
 
-const fullDataStore = computed(() => {
-  return dataStore.acidConcentration && dataStore.solutionVolume && dataStore.powderWeight
+const fullfirstDataStore = computed(() => {
+  return !!(dataStore.acidConcentration && dataStore.solutionVolume && dataStore.powderWeight)
+})
+
+const fullSecondDataStore = computed(() => {
+  return !!(
+    dataStore.ind1_op1 &&
+    dataStore.ind1_op2 &&
+    dataStore.ind1_op3 &&
+    dataStore.ind1_op4 &&
+    dataStore.ind2_op1 &&
+    dataStore.ind2_op2 &&
+    dataStore.ind2_op3 &&
+    dataStore.ind2_op4
+  )
+})
+
+const canNext = computed(() => {
+  switch (dataStore.currentStep) {
+    case 'step0':
+      return true
+    case 'step1':
+      return fullfirstDataStore.value
+    case 'step2':
+      return fullSecondDataStore.value
+    case 'step3':
+      return false
+  }
+  return false
 })
 
 const haveBackwardStep = computed(() => dataStore.currentStep !== 'step0')
-const haveForwardStep = computed(() => dataStore.currentStep !== 'step4')
 
 function nextStep() {
+  console.log()
   switch (dataStore.currentStep) {
     case 'step0':
       dataStore.currentStep = 'step1'
@@ -43,9 +72,6 @@ function nextStep() {
       break
     case 'step2':
       dataStore.currentStep = 'step3'
-      break
-    case 'step3':
-      dataStore.currentStep = 'step4'
       break
   }
 }
@@ -61,19 +87,31 @@ function prevStep() {
     case 'step3':
       dataStore.currentStep = 'step2'
       break
-    case 'step4':
-      dataStore.currentStep = 'step3'
-      break
   }
 }
 </script>
 
 <style scoped>
-.control-panel {
+.control-wrapper {
   position: fixed;
-  bottom: 20px;
+  background: var(--glassgray);
+  bottom: 0dvh;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
+  z-index: 9;
+  width: 100%;
+  max-width: 500px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: clamp(10px, 5dvw, 50px) clamp(10px, 5dvw, 50px) 0px 0px;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.control-panel {
+  position: relative;
   z-index: 10;
 }
 
