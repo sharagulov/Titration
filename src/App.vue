@@ -29,16 +29,16 @@ const isResults = computed(() => dataStore.currentStep === 'step3')
 
 <style scoped>
 .page-components {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   gap: 20px;
   width: 800px;
-  margin: 30px;
+  padding: 30px;
 }
 
-@media (min-width: 800px) {
+@media (max-width: 800px) {
   .page-components {
+    width: 100dvw;
+    padding: 50px 30px 0px 30px;
+    margin-bottom: 150px;
   }
 }
 </style>

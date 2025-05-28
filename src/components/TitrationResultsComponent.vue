@@ -62,7 +62,7 @@
         </BlockComponent>
       </div>
       <VerticalLine />
-      <p>
+      <p class="block">
         Если ввели все восемь чисел корректно, нажмите «Продолжить» — и на следующей странице
         увидите полный разбор с формулами, пояснениями и итоговой структурой кристаллогидрата.
       </p>
@@ -137,6 +137,12 @@ export default {
 </script>
 
 <style scoped>
+.titration-block {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 .input-fields {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -147,17 +153,12 @@ export default {
   width: 100%;
 }
 
-.titration-block {
-  margin-block: 200px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
 .card-block {
   display: flex;
   flex-direction: column;
   gap: 3px;
+  width: 100%;
+  align-items: center;
 }
 
 .cards {
@@ -184,6 +185,15 @@ export default {
   .input-fields {
     display: flex;
     flex-direction: column;
+  }
+
+  .titration-block,
+  .cards {
+    align-items: center;
+  }
+
+  .block {
+    text-align: center;
   }
 }
 </style>
