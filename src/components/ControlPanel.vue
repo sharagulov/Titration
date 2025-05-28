@@ -94,13 +94,13 @@ function prevStep() {
 <style scoped>
 .control-wrapper {
   position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
   background: var(--glassgray);
-  bottom: 0dvh;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 9;
-  width: 100%;
   max-width: 500px;
+  margin: 0 auto;
   height: 100px;
   display: flex;
   justify-content: center;
