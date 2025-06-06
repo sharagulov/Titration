@@ -20,18 +20,18 @@
         <span class="card-name gray-text">«Индикатор 1» (фенолфталеин)</span>
         <BlockComponent>
           <div class="input-fields">
-            <InputComponent v-model="ind1_op1">
+            <InputComponent v-model="ind1_op1" placeholder="7">
               Опыт 1 <template #description> Индикатор 1 — Опыт 1 </template>
             </InputComponent>
-            <InputComponent v-model="ind1_op2">
+            <InputComponent v-model="ind1_op2" placeholder="6.5">
               Опыт 2
               <template #description> Индикатор 1 — Опыт 2 </template></InputComponent
             >
-            <InputComponent v-model="ind1_op3">
+            <InputComponent v-model="ind1_op3" placeholder="6.4">
               Опыт 3
               <template #description> Индикатор 1 — Опыт 3 </template></InputComponent
             >
-            <InputComponent v-model="ind1_op4">
+            <InputComponent v-model="ind1_op4" placeholder="6.45">
               Опыт 4
               <template #description> Индикатор 1 — Опыт 4 </template></InputComponent
             >
@@ -43,18 +43,18 @@
         <span class="card-name gray-text">«Индикатор 2» (метилоранж)</span>
         <BlockComponent>
           <div class="input-fields">
-            <InputComponent v-model="ind2_op1">
+            <InputComponent v-model="ind2_op1" placeholder="14">
               Опыт 1 <template #description> Индикатор 2 — Опыт 1 </template>
             </InputComponent>
-            <InputComponent v-model="ind2_op2">
+            <InputComponent v-model="ind2_op2" placeholder="13">
               Опыт 2
               <template #description> Индикатор 2 — Опыт 2 </template></InputComponent
             >
-            <InputComponent v-model="ind2_op3">
+            <InputComponent v-model="ind2_op3" placeholder="12.8">
               Опыт 3
               <template #description> Индикатор 2 — Опыт 3 </template></InputComponent
             >
-            <InputComponent v-model="ind2_op4">
+            <InputComponent v-model="ind2_op4" placeholder="12.8">
               Опыт 4
               <template #description> Индикатор 2 — Опыт 4 </template></InputComponent
             >
@@ -161,7 +161,7 @@ export default {
   flex-direction: column;
   gap: 3px;
   width: 100%;
-  align-items: center;
+  align-items: start;
 }
 
 .cards {
@@ -197,6 +197,10 @@ export default {
 
   .block {
     text-align: center;
+  }
+
+  .card-block {
+    align-items: center;
   }
 }
 </style>

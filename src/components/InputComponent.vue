@@ -5,7 +5,13 @@
     </label>
 
     <!-- оставляем type="text", чтобы не получать браузерные стрелочки -->
-    <input :value="displayValue" type="text" class="input-field" @input="onInput" />
+    <input
+      :value="displayValue"
+      :placeholder="placeholder"
+      type="text"
+      class="input-field"
+      @input="onInput"
+    />
 
     <span v-if="$slots.description" class="description">
       <Icon class="info" icon="material-symbols-light:info-outline" width="24" height="24" />
@@ -23,6 +29,10 @@ export default {
 
   props: {
     modelValue: {
+      type: String,
+      default: ''
+    },
+    placeholder: {
       type: String,
       default: ''
     }

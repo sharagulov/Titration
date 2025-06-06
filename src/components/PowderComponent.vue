@@ -14,13 +14,13 @@
     <VerticalLine />
     <BlockComponent>
       <div class="input-fields">
-        <InputComponent v-model="powderWeight">
+        <InputComponent v-model="powderWeight" placeholder="1.430">
           Масса <template #description> Сколько соды взяли для приготовления раствора </template>
         </InputComponent>
-        <InputComponent v-model="solutionVolume">
+        <InputComponent v-model="solutionVolume" placeholder="100">
           Объем <template #description> Объём раствора соды в мерной колбе </template>
         </InputComponent>
-        <InputComponent v-model="acidConcentration">
+        <InputComponent v-model="acidConcentration" placeholder="0.1">
           Концентрация
           <template #description> Концентрация соляной кислоты в растворе </template>
         </InputComponent>
